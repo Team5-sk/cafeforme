@@ -363,7 +363,6 @@ kubectl autoscale deploy delivery --min=1 --max=5 --cpu-percent=50
 ```
 - 부하 테스트를 위해 cpu-percent를 임시 조정
 ```
-kubectl autoscale deploy customer --min=3 --max=10 --cpu-percent=5
 kubectl autoscale deploy customer --min=1 --max=10 --cpu-percent=10
 ```
 
@@ -374,12 +373,6 @@ siege -c100 -t120S -r10 -v --content-type "application/json" 'http://customer:80
 - siege 를 통해 test를 진행하였으나 충분한 부하가 걸리지 않아 hpa는 확인하지 못하였다.
 ```
 NAME                            READY   STATUS    RESTARTS   AGE
-pod/customer-85f968c94c-b254s   1/1     Running   0          15m
-pod/customer-85f968c94c-k5pq4   1/1     Running   0          14m
-pod/customer-85f968c94c-pgwd7   1/1     Running   0          15m
-pod/delivery-78f4bb9f9b-7h42s   1/1     Running   0          68m
-pod/gateway-675c9b584d-tr7cv    1/1     Running   0          17h
-pod/httpie                      1/1     Running   1          18h
 pod/customer-6865d894bc-jdkdk   1/1     Running   0          30s
 pod/delivery-68b66976d6-5cxz9   1/1     Running   0          162m
 pod/gateway-7784474fc-cnttl     1/1     Running   0          104m
